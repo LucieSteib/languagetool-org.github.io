@@ -76,7 +76,8 @@ large (>800MB), so cloning might take some time. You can then build the
 code with `mvn clean package` or just run the tests with `mvn clean test`.
 You need at least Java 8 for building LT. Maven's default memory settings
 are often too low, so you will probably need to set your environment
-variable `MAVEN_OPTS` to:
+
+le `MAVEN_OPTS` to:
 
     -Xmx1550m
 
@@ -583,6 +584,9 @@ and then refer to them using `$1`, `$2` etc:
            postag_regexp="yes"
            postag_replace="$1:sg:.*nom.*:n1\.n2.*$2"></match>
 ```
+
+It should be noted that a mismatch between the token that matches the pattern doesn't match the regular expression in the suggestion is to be avoided. Such a mismatch can cause a runtime exception.
+More about runtime exception error [here](https://languagetooler.atlassian.net/wiki/spaces/DEV/pages/1959297044/XML+Rules+Possible+Error+Messages+How+to+solve).
 
 ## RuleFilter
 
